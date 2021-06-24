@@ -39,15 +39,12 @@
       "bundle.js"
     ]
   },
-  "eslintConfig": {
-    "extends": "eda",
-    "ignorePatterns": [
-      "bundle.js"
-    ]
-  },
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "knex": "^0.95.6",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^2.0.3"
   },
   "devDependencies": {
     "@babel/core": "7.13.1",
