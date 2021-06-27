@@ -21,16 +21,6 @@ const App = () => {
           <Grid.Row>
             <Facts />
           </Grid.Row>
-          <Grid.Row>
-            <Segment color='yellow' inverted>
-              <Button animated>
-                <Button.Content visible>Another One</Button.Content>
-                <Button.Content hidden>
-                  <Icon name='refresh' />
-                </Button.Content>
-              </Button>
-            </Segment>
-          </Grid.Row>
         </Grid.Column>
       </Grid>
     </>

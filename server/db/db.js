@@ -5,6 +5,14 @@ function getFacts (db = database) {
   return db('Facts').select()
 }
 
+function getFactById (id, db = database) {
+  return db('Facts')
+    .where('id', id)
+    .select()
+    .first()
+}
+
 module.exports = {
-  getFacts
+  getFacts,
+  getFactById
 }

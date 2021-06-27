@@ -1,8 +1,17 @@
 import request from 'superagent'
 
-export async function getFacts () {
-  return await request.get('/v1/facts')
+export function getFacts () {
+  return request.get('/v1/facts')
     .then(res => {
+      return res.body
+    })
+    .catch(errorHandler('GET', '/v1/facts'))
+}
+
+export function getFactById (id) {
+  return request.get(`/v1/randomFact/${id}`)
+    .then(res => {
+      console.log(res)
       return res.body
     })
     .catch(errorHandler('GET', '/v1/facts'))
