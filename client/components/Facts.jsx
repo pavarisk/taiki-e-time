@@ -44,6 +44,9 @@ function Facts (props) {
         <Image src={facts.image} wrapped ui={false} />
         <Card.Content>
           <Card.Header>{facts.factType}</Card.Header>
+          <Card.Meta>
+            <span className='reference'>{facts.reference}</span>
+          </Card.Meta>
           <Card.Description>
             {facts.factDetails}
           </Card.Description>
