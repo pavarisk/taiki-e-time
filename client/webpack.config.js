@@ -18,7 +18,7 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
   devtool: 'source-map',
-  devServer: {
-    contentBase: path.join(__dirname, '../server/public')
-  }
+  // devServer: {
+  //   contentBase: path.join(__dirname, '../server/public')
+  // }
 }

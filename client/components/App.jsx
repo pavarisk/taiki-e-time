@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Grid, Segment, Button, Icon } from 'semantic-ui-react'
 
 import MyMenu from './MyMenu'
@@ -9,7 +9,7 @@ const App = () => {
   return (
     <>
       <Grid rows='equal' centered devided inverted padded>
-        <Grid.Column color='yellow' centered inverted textAlign='centered' padded >
+        <Grid.Column color='yellow' centered inverted textAlign='center' padded >
           <Grid.Row>
             <Segment color='yellow' inverted>
               <MyMenu/>
