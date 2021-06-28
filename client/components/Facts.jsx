@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Image, Segment, Button, Icon } from 'semantic-ui-react'
-import { getFacts, getFactById } from '../apiClient'
+import { getFactById } from '../apiClient'
 
 const randomInt = Math.floor((Math.random() + 1) * 3)
 
 function Facts (props) {
-  const [facts, setFacts] = useState([])
+
   const [fact, setFact] = useState([])
-  const [ranId, setRanId] = useState(randomInt)
   const [id, setId] = useState(1)
+  const [ranId, setRanId] = useState(1)
+
+  useEffect(() => {
+    changeId()
+  }, [])
 
   useEffect(() => {
     factIs()
@@ -17,35 +21,28 @@ function Facts (props) {
   function factIs () {
     return getFactById(id)
       .then(fact => {
-        console.log(fact)
+
         return setFact(fact)
       })
       .catch(e => console.log(e))
   }
 
   function changeId () {
-    // if (id === 3) {
-    //   id = 1
-    //   return setId(id)
-    // } else return setId(id + 1)
-    return setId(ranId)
+    const randomid = Math.floor((Math.random() * 10) + 1)
+    if (randomid !== ranId) {
+      setRanId(randomid)
+      setId(ranId)
+      console.log('id: ' + id + ', random id: ' + ranId)
+    }
+    return null
   }
 
   return (
-    // facts.map(fact =>
-    //   <Card centered key={fact.id}>
-    //     <Image src={fact.image} wrapped ui={false} />
-    //     <Card.Content>
-    //       <Card.Header>{fact.factType}</Card.Header>
-    //       <Card.Description>
-    //         {fact.factDetails}
-    //       </Card.Description>
-    //     </Card.Content>
-    //   </Card>
-    // )
     <>
       <Card centered>
-        <Image src={fact.image} wrapped ui={false} />
+
+        <Image src={fact.image} wrapped ui={false} size='big' />
+
         <Card.Content>
           <Card.Header>{fact.factType}</Card.Header>
           <Card.Meta>
