@@ -3,9 +3,9 @@ import { Card, Image, Segment, Button, Icon } from 'semantic-ui-react'
 import { getFacts, getFactById } from '../apiClient'
 
 function Facts (props) {
-  const [facts, setFacts] = useState([])
+  const [fact, setFact] = useState([])
   const [id, setId] = useState(1)
-  console.log(facts)
+  const [ranId, setRanId] = useState(1)
 
   useEffect(() => {
     factIs()
@@ -15,16 +15,19 @@ function Facts (props) {
     return getFactById(id)
       .then(fact => {
         console.log(fact)
-        return setFacts(fact)
+        return setFact(fact)
       })
       .catch(e => console.log(e))
   }
 
-  function changeId (id) {
-    if (id === 3) {
-      id = 1
-      return setId(id)
-    } else return setId(id + 1)
+  function changeId () {
+    const randomid = Math.floor((Math.random() * 3) + 1)
+    if (randomid !== ranId) {
+      setRanId(randomid)
+      setId(ranId)
+      console.log('id: ' + id + ', random id: ' + ranId)
+    }
+    return null
   }
 
   return (
@@ -41,19 +44,19 @@ function Facts (props) {
     // )
     <>
       <Card centered>
-        <Image src={facts.image} wrapped ui={false} />
+        <Image src={fact.image} wrapped ui={false} />
         <Card.Content>
-          <Card.Header>{facts.factType}</Card.Header>
+          <Card.Header>{fact.factType}</Card.Header>
           <Card.Meta>
-            <span className='reference'>{facts.reference}</span>
+            <span className='reference'>{fact.reference}</span>
           </Card.Meta>
           <Card.Description>
-            {facts.factDetails}
+            {fact.factDetails}
           </Card.Description>
         </Card.Content>
       </Card>
       <Segment color='yellow' inverted>
-        <Button onClick={() => changeId(id)} animated>
+        <Button onClick={() => changeId()} animated>
           <Button.Content visible>Another One</Button.Content>
           <Button.Content hidden>
             <Icon name='refresh' />

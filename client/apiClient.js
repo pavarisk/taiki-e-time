@@ -14,7 +14,7 @@ export function getFactById (id) {
       console.log(res)
       return res.body
     })
-    .catch(errorHandler('GET', '/v1/facts'))
+    .catch(errorHandler('GET', '/v1/randomFacts/'))
 }
 
 function errorHandler (method, route) {
