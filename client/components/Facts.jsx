@@ -18,7 +18,6 @@ function Facts (props) {
   function factIs () {
     return getFactById(id)
       .then(fact => {
-        console.log(fact)
         return setFact(fact)
       })
       .catch(e => console.log(e))
@@ -37,7 +36,7 @@ function Facts (props) {
   return (
     <>
       <Card centered>
-        <Image src={fact.image} wrapped ui={false} />
+        <Image src={fact.image} wrapped ui={false} size='big' />
         <Card.Content>
           <Card.Header>{fact.factType}</Card.Header>
           <Card.Meta>

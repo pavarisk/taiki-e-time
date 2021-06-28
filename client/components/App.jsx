@@ -7,9 +7,9 @@ import Facts from './Facts'
 
 const App = () => {
   return (
-    <div className='ui mobile only'>
-      <Grid rows='equal'>
-        <Grid.Column color='yellow' textAlign='center' >
+    <>
+      {/* <Grid rows='equal' divided padded fluid>
+        <Grid.Column color='yellow' textAlign='center'>
           <Grid.Row>
             <Segment color='yellow' inverted>
               <MyMenu/>
@@ -22,8 +22,15 @@ const App = () => {
             <Facts />
           </Grid.Row>
         </Grid.Column>
-      </Grid>
-    </div>
+      </Grid> */}
+      <div className="ui container">
+        <MyMenu/>
+        <MyHeader/>
+      </div>
+      <div className="content">
+        <Facts />
+      </div>
+    </>
   )
 }
 

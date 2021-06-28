@@ -11,7 +11,6 @@ export function getFacts () {
 export function getFactById (id) {
   return request.get(`/v1/randomFact/${id}`)
     .then(res => {
-      console.log(res)
       return res.body
     })
     .catch(errorHandler('GET', '/v1/randomFacts/'))
