@@ -8,6 +8,10 @@ function Facts (props) {
   const [ranId, setRanId] = useState(1)
 
   useEffect(() => {
+    changeId()
+  }, [])
+
+  useEffect(() => {
     factIs()
   }, [id])
 
@@ -21,7 +25,7 @@ function Facts (props) {
   }
 
   function changeId () {
-    const randomid = Math.floor((Math.random() * 3) + 1)
+    const randomid = Math.floor((Math.random() * 10) + 1)
     if (randomid !== ranId) {
       setRanId(randomid)
       setId(ranId)
