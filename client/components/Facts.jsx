@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Image, Segment, Button, Icon } from 'semantic-ui-react'
-import { getFacts, getFactById } from '../apiClient'
+import { getFactById } from '../apiClient'
 
 function Facts (props) {
   const [fact, setFact] = useState([])
@@ -35,17 +35,6 @@ function Facts (props) {
   }
 
   return (
-    // facts.map(fact =>
-    //   <Card centered key={fact.id}>
-    //     <Image src={fact.image} wrapped ui={false} />
-    //     <Card.Content>
-    //       <Card.Header>{fact.factType}</Card.Header>
-    //       <Card.Description>
-    //         {fact.factDetails}
-    //       </Card.Description>
-    //     </Card.Content>
-    //   </Card>
-    // )
     <>
       <Card centered>
         <Image src={fact.image} wrapped ui={false} />
