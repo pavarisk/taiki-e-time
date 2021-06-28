@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { Card, Image, Segment, Button, Icon } from 'semantic-ui-react'
 import { getFactById } from '../apiClient'
 
+const randomInt = Math.floor((Math.random() + 1) * 3)
+
 function Facts (props) {
+
   const [fact, setFact] = useState([])
   const [id, setId] = useState(1)
   const [ranId, setRanId] = useState(1)
@@ -18,6 +21,7 @@ function Facts (props) {
   function factIs () {
     return getFactById(id)
       .then(fact => {
+
         return setFact(fact)
       })
       .catch(e => console.log(e))
@@ -36,7 +40,9 @@ function Facts (props) {
   return (
     <>
       <Card centered>
+
         <Image src={fact.image} wrapped ui={false} size='big' />
+
         <Card.Content>
           <Card.Header>{fact.factType}</Card.Header>
           <Card.Meta>
