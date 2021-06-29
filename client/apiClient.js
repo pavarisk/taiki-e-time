@@ -9,7 +9,15 @@ export function getFacts () {
 }
 
 export function getFactById (id) {
-  return request.get(`/v1/randomFact/${id}`)
+  return request.get(`/v1/getFactById/${id}`)
+    .then(res => {
+      return res.body
+    })
+    .catch(errorHandler('GET', '/v1/randomFacts/'))
+}
+
+export function getRandomFact() {
+  return request.get('/v1/randomFact')
     .then(res => {
       return res.body
     })

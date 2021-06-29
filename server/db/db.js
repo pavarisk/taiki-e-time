@@ -12,7 +12,16 @@ function getFactById (id, db = database) {
     .first()
 }
 
+function getRandomFact (db = database) {
+  return getFacts(db)
+    .then(facts => {
+      const idx = Math.floor(Math.random() * facts.length)
+      return facts[idx]
+    })
+}
+
 module.exports = {
   getFacts,
-  getFactById
+  getFactById,
+  getRandomFact
 }

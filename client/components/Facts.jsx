@@ -1,38 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import { Card, Image, Segment, Button, Icon } from 'semantic-ui-react'
-import { getFactById } from '../apiClient'
-
-const randomInt = Math.floor((Math.random() + 1) * 3)
+import { getRandomFact } from '../apiClient'
 
 function Facts (props) {
   const [fact, setFact] = useState([])
-  const [id, setId] = useState(randomInt)
-  const [ranId, setRanId] = useState(randomInt)
 
   useEffect(() => {
-    changeId()
+    loadFact()
   }, [])
 
-  useEffect(() => {
-    factIs()
-  }, [id])
-
-  function factIs () {
-    return getFactById(id)
+  function loadFact () {
+    return getRandomFact()
       .then(fact => {
         return setFact(fact)
       })
       .catch(e => console.log(e))
-  }
-
-  function changeId () {
-    const randomid = Math.floor((Math.random() * 10) + 1)
-    if (randomid !== ranId) {
-      setRanId(randomid)
-      setId(ranId)
-      console.log('id: ' + id + ', random id: ' + ranId)
-    }
-    return null
   }
 
   return (
@@ -50,7 +32,7 @@ function Facts (props) {
         </Card.Content>
       </Card>
       <Segment color='yellow' inverted>
-        <Button onClick={() => changeId()} animated>
+        <Button onClick={() => loadFact()} animated>
           <Button.Content visible>Another One</Button.Content>
           <Button.Content hidden>
             <Icon name='refresh' />

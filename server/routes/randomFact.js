@@ -5,9 +5,8 @@ const db = require('../db/db')
 const router = express.Router()
 
 // put routes here
-router.get('/:id', (req, res) => {
-  const id = Number(req.params.id)
-  db.getFactById(id)
+router.get('/', (req, res) => {
+  db.getRandomFact()
     .then((fact) => {
       return res.json(fact)
     })
