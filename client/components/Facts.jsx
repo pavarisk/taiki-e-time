@@ -19,6 +19,7 @@ function Facts (props) {
 
   return (
     <>
+      <h2>Did you know?</h2>
       <Card centered>
         <Image src={fact.image} wrapped ui={false} size='big' />
         <Card.Content>

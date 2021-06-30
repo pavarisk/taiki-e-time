@@ -16,12 +16,20 @@ export function getFactById (id) {
     .catch(errorHandler('GET', '/v1/randomFacts/'))
 }
 
-export function getRandomFact() {
+export function getRandomFact () {
   return request.get('/v1/randomFact')
     .then(res => {
       return res.body
     })
     .catch(errorHandler('GET', '/v1/randomFacts/'))
+}
+
+export function getFactByName (name) {
+  return request.post(`/v1/getFactByName/${name}`)
+    .then(res => {
+      return res.body
+    })
+    .catch(errorHandler('GET', '/v1/getFactByName/'))
 }
 
 function errorHandler (method, route) {

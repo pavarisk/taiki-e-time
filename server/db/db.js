@@ -20,8 +20,15 @@ function getRandomFact (db = database) {
     })
 }
 
+function getFactByName (name, db = database) {
+  return db('Facts')
+    .where('factType', name)
+    .select()
+}
+
 module.exports = {
   getFacts,
   getFactById,
-  getRandomFact
+  getRandomFact,
+  getFactByName
 }
