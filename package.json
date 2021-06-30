@@ -9,11 +9,12 @@
   "scripts": {
     "client": "webpack serve --config ./client/webpack.config.js --hot",
     "knex": "knex --knexfile server/db/knexfile.js",
+    "knex:migrate": "npm run knex migrate:latest",
     "dev": "run-p dev:client dev:server",
     "dev:client": "npm run webpack -- --watch",
     "dev:server": "nodemon server",
     "start": "node server",
-    "build": "npm run webpack",
+    "build": "run-p webpack knex:migrate",
     "server": "node server",
     "test": "jest",
     "test:watch": "jest --watchAll",
@@ -44,6 +45,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "knex": "^0.95.6",
+    "pg": "^8.6.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.3",
     "sqlite3": "^5.0.2"
